@@ -65,11 +65,11 @@ function toText(event){
     event.target.replaceWith(newText);
 }
 
-function toParagraph (event){
+function toParagraph(event){
     const newP = document.createElement('p');
     newP.textContent = event.target.value;
     newP.addEventListener("dblclick", toText);
-    newP.addEventListener("wheel", () => {
+    document.addEventListener("wheel", () => {
         newP.style.color = random();
         })
     event.target.replaceWith(newP);
