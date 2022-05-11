@@ -25,8 +25,10 @@ headerTitle.classList.toggle("big-red");
 
 /* -------------------- #3 -------------------------*/
 
-document.addEventListener("keydown", () => {
-    alert("Are you having fun yet?!?!?! You'd better be....or ELSE");
+document.addEventListener("keydown", (event) => {
+    if(event.key === "f"){
+        alert("Are you having fun yet?!?!?! You'd better be....or ELSE");
+    }
 })
 
 /* -------------------- #4 -------------------------*/
@@ -54,7 +56,7 @@ subTitles.forEach(each => {
     })
 })
 
-/* -------------------- #6 & 7 -------------------------*/
+/* -------------------- #6, 7, & 10 -------------------------*/
 function toText(event){
     const newText = document.createElement("textarea");
     newText.textContent = event.target.textContent;
@@ -62,6 +64,9 @@ function toText(event){
     newText.style.height = "200px";
     newText.addEventListener("dblclick", toParagraph);
     newText.addEventListener("select", selector);
+    newText.addEventListener("focus", event => {
+        event.target.style.backgroundColor = "pink";
+    })
     event.target.replaceWith(newText);
 }
 
@@ -90,3 +95,10 @@ function selector(e) {
     ....why is that?
     `);
 }
+
+/* -------------------- #9 -------------------------*/
+
+const images = document.querySelectorAll("img");
+images.forEach(each => {
+    each.addEventListener("drag", () => alert("HEY! STOP THAT!"));
+})
